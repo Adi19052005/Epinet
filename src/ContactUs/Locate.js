@@ -2,14 +2,15 @@ import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+// Use the correct env variable name
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function Locate() {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
   useEffect(() => {
-    if (map.current) return;
+    if (map.current) return; // initialize map only once
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -18,31 +19,31 @@ function Locate() {
       zoom: 14,
     });
 
+    // Add navigation controls
     map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
 
+    // Create custom marker
     const el = document.createElement("div");
     el.className = "custom-marker";
-    el.title = "epinet";
+    el.title = "Epinet";
+
+    const popupContent = `
+      <div style="
+        background: #fff;
+        padding: 12px 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+      ">
+        <h3 style="color: #000; margin: 0; font-size: 18px;">Epinet Info Pvt. Ltd</h3>
+        <p style="color: #555; margin: 5px 0 0; font-size: 14px;">Your trusted partner in tech</p>
+      </div>
+    `;
 
     new mapboxgl.Marker(el)
       .setLngLat([73.01583143791812, 19.11160794523556])
-      .setPopup(
-        new mapboxgl.Popup().setHTML(`
-          <div style="
-            background: #fff;
-            padding: 12px 18px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            text-align: center;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-          ">
-            <h3 style="color: #000; margin: 0; font-size: 18px;">Epinet Info Pvt.Ltd</h3>
-            <p style="color: #555; margin: 5px 0 0; font-size: 14px;">
-              Your trusted partner in tech
-            </p>
-          </div>
-        `)
-      )
+      .setPopup(new mapboxgl.Popup().setHTML(popupContent))
       .addTo(map.current);
   }, []);
 
@@ -64,6 +65,7 @@ function Locate() {
         />
       </div>
 
+      {/* Marker styles */}
       <style>
         {`
           .custom-marker {
