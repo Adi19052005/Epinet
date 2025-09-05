@@ -14,24 +14,3 @@ code {
   background-color: #ffaa00; 
   color: #1e1e1e; 
 }
-
-.nav-item{
- color: white;
-}
-/* Ensure the navbar collapse appears above everything */
-.navbar-collapse {
-  position: absolute;      /* So it can overlap next section */
-  top: 100%;               /* Right below the navbar */
-  left: 0;
-  width: 100%;             /* Full width */
-  background-color: #111;  /* Dark background to contrast links */
-  z-index: 9999;           /* High z-index to appear in front */
-  padding: 1rem 2rem;      /* Optional: spacing inside menu */
-}
-
-/* Style nav links inside collapse */
-.navbar-collapse .nav-link {
-  color: #fff !important;  /* Make text readable */
-  padding: 0.5rem 0;
-  display: block;
-}
