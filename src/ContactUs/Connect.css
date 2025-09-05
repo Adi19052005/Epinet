@@ -1,0 +1,54 @@
+.connect-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #1a1a1a; /* softer dark gray instead of black */
+  color: #fff;
+  box-shadow: 0 0 5px rgba(255, 170, 0, 0.3);
+}
+
+.connect-container h2 {
+  text-align: center;
+  color: #ffaa00;
+  margin-bottom: 20px;
+}
+
+.connect-container input,
+.connect-container textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 2px solid #ffaa00;
+  background-color: #1a1a1a; /* match container background */
+  color: #fff;
+  font-size: 16px;
+}
+
+.connect-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.connect-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffaa00;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.connect-container button:hover {
+  background-color: #ffbb33;
+}
+
+.connect-container p.status {
+  text-align: center;
+  margin-top: 15px;
+  color: #ffaa00;
+}
